@@ -56,160 +56,246 @@ http://localhost:8080
 ## 🌐 Dokumentasi API
 
 ### 🔍 Cek API Utama
-**GET /**  
-- **URL:** `http://localhost:8080/`  
-- **Response:**
-  ```json
-  {
-    "message": "Welcome to Guild Management API"
-  }
-  ```
+```
+GET / HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "message": "Welcome to Guild Management API"
+}
+```
+
+---
 
 ### 🏰 Guild Endpoints
 
 #### 📥 Tambah Guild
-**POST /guilds/**  
-- **Body:**  
-  ```json
-  {
-    "name": "Warriors",
-    "description": "Guild of brave warriors"
-  }
-  ```
-- **Response:**  
-  ```json
-  {
-    "id": 1,
-    "name": "Warriors",
-    "description": "Guild of brave warriors"
-  }
-  ```
+```
+POST /guilds/ HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Warriors",
+  "description": "Guild of brave warriors"
+}
+```
+**Response:**
+```
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Warriors",
+  "description": "Guild of brave warriors"
+}
+```
+
+---
 
 #### 📜 Lihat Semua Guild
-**GET /guilds/**  
-- **Response:**  
-  ```json
-  [
-    {
-      "id": 1,
-      "name": "Warriors",
-      "description": "Guild of brave warriors"
-    }
-  ]
-  ```
+```
+GET /guilds/ HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-#### 🔍 Lihat Guild Berdasarkan ID
-**GET /guilds/:id**  
-- **URL:** `http://localhost:8080/guilds/1`  
-- **Response:**
-  ```json
+[
   {
     "id": 1,
     "name": "Warriors",
     "description": "Guild of brave warriors"
   }
-  ```
+]
+```
+
+---
+
+#### 🔍 Lihat Guild Berdasarkan ID
+```
+GET /guilds/1 HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Warriors",
+  "description": "Guild of brave warriors"
+}
+```
+
+---
 
 #### 📝 Ubah Guild
-**PUT /guilds/:id**  
-- **Body:**  
-  ```json
-  {
-    "name": "Warriors Updated",
-    "description": "Guild of legendary warriors"
-  }
-  ```
-- **Response:**  
-  ```json
-  {
-    "id": 1,
-    "name": "Warriors Updated",
-    "description": "Guild of legendary warriors"
-  }
-  ```
+```
+PUT /guilds/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Warriors Updated",
+  "description": "Guild of legendary warriors"
+}
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Warriors Updated",
+  "description": "Guild of legendary warriors"
+}
+```
+
+---
 
 #### 🗑️ Hapus Guild
-**DELETE /guilds/:id**  
-- **Response:**  
-  ```json
-  {
-    "message": "Guild deleted successfully"
-  }
-  ```
+```
+DELETE /guilds/1 HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "message": "Guild deleted successfully"
+}
+```
 
 ---
 
 ### 👥 Member Endpoints
 
 #### 📥 Tambah Member ke Guild
-**POST /guilds/:id/members/**  
-- **Body:**  
-  ```json
-  {
-    "name": "Arthur",
-    "role": "Knight"
-  }
-  ```
-- **Response:**  
-  ```json
-  {
-    "id": 1,
-    "name": "Arthur",
-    "role": "Knight",
-    "guild_id": 1
-  }
-  ```
+```
+POST /guilds/1/members/ HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Arthur",
+  "role": "Knight"
+}
+```
+**Response:**
+```
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Arthur",
+  "role": "Knight",
+  "guild_id": 1
+}
+```
+
+---
 
 #### 📜 Lihat Semua Anggota dalam Guild
-**GET /guilds/:id/members/**  
-- **Response:**  
-  ```json
-  [
-    {
-      "id": 1,
-      "name": "Arthur",
-      "role": "Knight"
-    }
-  ]
-  ```
+```
+GET /guilds/1/members/ HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-#### 🔍 Lihat Detail Anggota
-**GET /guilds/:id/members/:member_id**  
-- **Response:**  
-  ```json
+[
   {
     "id": 1,
     "name": "Arthur",
     "role": "Knight"
   }
-  ```
+]
+```
+
+---
+
+#### 🔍 Lihat Detail Anggota
+```
+GET /guilds/1/members/1 HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Arthur",
+  "role": "Knight"
+}
+```
+
+---
 
 #### 🔄 Ubah Anggota
-**PUT /guilds/:id/members/:member_id**  
-- **Body:**  
-  ```json
-  {
-    "name": "Arthur Pendragon",
-    "role": "King"
-  }
-  ```
-- **Response:**  
-  ```json
-  {
-    "id": 1,
-    "name": "Arthur Pendragon",
-    "role": "King"
-  }
-  ```
+```
+PUT /guilds/1/members/1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "Arthur Pendragon",
+  "role": "King"
+}
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Arthur Pendragon",
+  "role": "King"
+}
+```
+
+---
 
 #### ❌ Hapus Anggota
-**DELETE /guilds/:id/members/:member_id**  
-- **Response:**  
-  ```json
-  {
-    "message": "Member deleted successfully"
-  }
-  ```
+```
+DELETE /guilds/1/members/1 HTTP/1.1
+Host: localhost:8080
+```
+**Response:**
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "message": "Member deleted successfully"
+}
+```
+
+---
+
+## 🤝 Kontribusi
+Jika Anda ingin berkontribusi, silakan buat Pull Request atau buka Issue.
+
+## 📄 Lisensi
+Proyek ini menggunakan lisensi **MIT**.
 
 ---
 
