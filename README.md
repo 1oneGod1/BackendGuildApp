@@ -213,9 +213,4 @@ http://localhost:8080
 
 ---
 
-## 🤝 Kontribusi
-Jika Anda ingin berkontribusi, silakan buat Pull Request atau buka Issue.
-
-## 📄 Lisensi
-Proyek ini menggunakan lisensi **MIT**.
 
